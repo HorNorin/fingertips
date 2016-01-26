@@ -1,0 +1,72 @@
+.header {
+  height: 50px;
+  border-bottom: 1px solid #ccc;
+}
+
+.header .logo {
+  float: left;
+}
+
+.header img {
+  display: block;
+}
+
+.header .menu {
+  float: right;
+  line-height: 50px;
+  position: relative;
+}
+
+.header .menu > li {
+  float: left;
+}
+
+.header .menu > li a {
+  color: #525252;
+  font-size: 1em;
+  display: block;
+  padding: 0 10px;
+}
+
+.header .menu > li > a {
+  transition: background 0.3s;
+  background: transparent;
+}
+
+.header .menu > li > a:hover,
+.header .menu > li.active > a {
+  color: #fff;
+  background: #e74430;
+}
+
+.header .menu > li > a > span.arrow {
+  bottom: 1px;
+  font-size: 11px;
+  position: relative;
+}
+
+.header .menu > li > a > span.arrow:before {
+  content: "\25bc";
+}
+
+.header .menu > li > a > span.arrow.open:before {
+  content: "\25b2";
+}
+
+.header .menu .sub-menu {
+  right: 0;
+  width: 150px;
+  position: absolute;
+  border: 1px solid #ccc;
+  line-height: 35px;
+  display: none;
+}
+
+.header .menu .sub-menu > li.divider {
+  width: 100%;
+  border-top: 1px solid #ccc;
+}
+
+.header .menu .sub-menu.open {
+  display: block;
+}
