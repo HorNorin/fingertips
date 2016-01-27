@@ -14,24 +14,20 @@ ul, li {
   list-style: none;
 }
 
+a, a:visited {
+  color: #525252; /* gray */
+}
+
+a:hover, a:active {
+  color: #e74430; /* red */
+}
+
 a, a:hover, a:active, a:visited {
   text-decoration: none;
 }
 
-a, a:visited {
-  color: #005999;
-}
-
-a:hover, a:active {
-  color: #07c;
-}
-
-.main {
-  padding-top: 30px;
-}
-
 .container {
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 1000px;
   min-width: 700px;
 }

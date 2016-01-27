@@ -1,0 +1,26 @@
+.footer {
+  height: 50px;
+  clear: both;
+}
+
+.footer ul {
+  line-height: 50px;
+}
+
+.footer ul, .footer a {
+  text-align: center;
+}
+
+.footer ul li {
+  padding: 0 20px;
+  display: inline-block;
+}
+
+.footer ul li a {
+  color: #525252;
+  font-size: 0.9em;
+}
+
+.footer ul li a:hover {
+  text-decoration: underline;
+}

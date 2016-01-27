@@ -29,11 +29,14 @@
 }
 
 .header .menu > li > a {
-  transition: background 0.3s;
+  transition: all 0.3s;
   background: transparent;
 }
 
-.header .menu > li > a:hover,
+.header .menu > li > a:hover {
+  color: #e74430;
+}
+
 .header .menu > li.active > a {
   color: #fff;
   background: #e74430;

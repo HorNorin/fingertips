@@ -1,0 +1,35 @@
+<div class="header">
+  <div class="container">
+    <a href="#" class="logo"><img src="public/images/logo.png" alt="fingertips logo" title="Fingertips"></a>
+    <ul class="menu">
+      <li [class.active]="isActivedItem('browse')" (click)="setActivedItem('browse')"><a href="#">Browse</a></li>
+      <li [class.active]="isActivedItem('signin')" (click)="setActivedItem('signin')"><a href="#">Sign In</a></li>
+      <li [class.active]="isActivedItem('signup')" (click)="setActivedItem('signup')"><a href="#">Sign Up</a></li>
+      <li [class.active]="dropDownOpenned" (click)="toggleDropDown($event)">
+        <a href="#" class="dropdown">Norin <span class="arrow" [class.open]="dropDownOpenned"></span></a>
+        <ul class="sub-menu" [class.open]="dropDownOpenned">
+          <li><a href="#">Profile</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Sign Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="main">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="container">
+    <ul>
+      <li><a href="#">Feedback</a></li>
+      <li><a href="#">Term of Use</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">About Us</a></li>
+    </ul>
+  </div>
+</div>

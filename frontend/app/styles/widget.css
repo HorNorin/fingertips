@@ -1,0 +1,9 @@
+.newly-pubished-widget {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+  height: 221px;
+  box-shadow: 0 0 5px #ccc;
+  -moz-box-shadow: 0 0 5px #ccc;
+  -webkit-box-shadow: 0 0 5px #ccc;
+}

@@ -4,8 +4,8 @@ module.exports = function(grunt) {
 
     ts: {
       app: {
-        dest: 'public/script/',
-        src: ['app/script/**/*.ts', '!node_modules/**/*.ts'],
+        dest: 'public/scripts/',
+        src: ['app/scripts/**/*.ts', '!node_modules/**/*.ts'],
         options: {
           target: 'ES5',
           module: 'system',
@@ -23,9 +23,9 @@ module.exports = function(grunt) {
       app: {
         files: [{
           expand: true,
-          cwd: 'app/style/',
+          cwd: 'app/styles/',
           src: '**/*.css',
-          dest: '.tmp/style/',
+          dest: '.tmp/styles/',
           ext: '.min.css'
         }]
       }
@@ -33,8 +33,8 @@ module.exports = function(grunt) {
 
     concat: {
       css: {
-        dest: 'public/style/app.min.css',
-        src: '.tmp/style/**/*.min.css'
+        dest: 'public/styles/app.min.css',
+        src: '.tmp/styles/**/*.min.css'
       }
     },
 
@@ -42,10 +42,26 @@ module.exports = function(grunt) {
       view: {
         files: [{
           expand: true,
-          cwd: 'app/view/',
+          cwd: 'app/views/',
           src: '**/*.html',
-          dest: 'public/view/',
+          dest: 'public/views/',
           ext: '.html'
+        }]
+      },
+      js: {
+        files: [{
+          expand: true,
+          cwd: 'app/scripts/venders/',
+          src: '**/*.js',
+          dest: 'public/scripts/venders/'
+        }]
+      },
+      image: {
+        files: [{
+          expand: true,
+          cwd: 'app/images/',
+          src: ['**/*.png', '**/*.jpg', '**/*.gif'],
+          dest: 'public/images/'
         }]
       }
     },
@@ -53,27 +69,27 @@ module.exports = function(grunt) {
     watch: {
       ts: {
         tasks: ['ts'],
-        files: ['app/script/**/*.ts']
+        files: ['app/scripts/**/*.ts']
       },
       view: {
         tasks: ['copy:view'],
-        files: ['app/view/**/*.html']
+        files: ['app/views/**/*.html']
       },
       css: {
         tasks: ['css'],
-        files: ['app/style/**/*.css']
+        files: ['app/styles/**/*.css']
       }
     },
 
     clean: {
       ts: {
-        src: 'public/script/**/*.js'
+        src: 'public/scripts/**/*.js'
       },
       view: {
-        src: 'public/view/**/*.html'
+        src: 'public/views/**/*.html'
       },
       css: {
-        src: 'public/style/**/*.css'
+        src: 'public/styles/**/*.css'
       }
     }
   });
