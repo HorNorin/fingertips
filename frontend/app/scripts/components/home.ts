@@ -12,6 +12,7 @@ export class HomeComponent implements AfterViewInit {
     slider.bxSlider({
       auto: true,
       controls: false,
+      slideWidth: 700,
       randomStart: true,
       easing: 'ease-out'
      });

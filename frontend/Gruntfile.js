@@ -90,6 +90,13 @@ module.exports = function(grunt) {
       },
       css: {
         src: 'public/styles/**/*.css'
+      },
+      image: {
+        src: [
+          'public/images/**/*.png',
+          'public/images/**/*.jpg',
+          'public/images/**/*.gif'
+        ]
       }
     }
   });

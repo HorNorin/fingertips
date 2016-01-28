@@ -1,6 +1,7 @@
 .header {
   height: 50px;
-  border-bottom: 1px solid #ccc;
+  background: #222222;
+  border-bottom: 1px solid #666666;
 }
 
 .header .logo {
@@ -22,7 +23,8 @@
 }
 
 .header .menu > li a {
-  color: #525252;
+  /*color: #525252;*/
+  color: #fff;
   font-size: 1em;
   display: block;
   padding: 0 10px;
@@ -37,7 +39,8 @@
   color: #e74430;
 }
 
-.header .menu > li.active > a {
+.header .menu > li.active > a,
+.header .menu .sub-menu > li a:hover {
   color: #fff;
   background: #e74430;
 }
@@ -63,6 +66,12 @@
   border: 1px solid #ccc;
   line-height: 35px;
   display: none;
+  z-index: 99999;
+  background: #fff;
+}
+
+.header .menu .sub-menu > li a {
+  color: #525252;
 }
 
 .header .menu .sub-menu > li.divider {

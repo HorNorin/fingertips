@@ -1,0 +1,93 @@
+.library {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.library .title {
+  color: #525252;
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: capitalize;
+  width: 100%;
+  overflow: hidden;
+}
+
+.library .title span {
+  position: relative;
+}
+
+.library .title span:before,
+.library .title span:after {
+  content: "";
+  border-top: 1px solid #ccc;
+  width: 600px;
+  height: 2px;
+  top: 50%;
+  overflow: hidden;
+  position: absolute;
+}
+
+.library .title span:before {
+  right: 100%;
+  margin-right: 20px;
+}
+
+.library .title span:after {
+  left: 100%;
+  margin-left: 20px;
+}
+
+.subjects {
+  overflow: hidden;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 700px;
+}
+
+.subject {
+  float: left;
+  margin: 0 100px;
+}
+
+.subject a {
+  display: block;
+  width: 100px;
+  transition: all 0.3s;
+  border-radius: 5px;
+}
+
+.subject a:hover {
+  transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  -moz-transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
+
+  transform: scale(1.2, 1.2);
+  -ms-transform: scale(1.2, 1.2);
+  -moz-transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2, 1.2);
+}
+
+.subject span {
+  display: block;
+  font-size: 1em;
+  text-align: center;
+  text-shadow: 0 0 1px #ccc;
+  margin-bottom: 15px;
+}
+
+.subject img {
+  width: 60px;
+  height: 60px;
+  margin-left: 20px;
+  display: block;
+}
+
+.subject:first-child {
+  margin-left: 0px;
+}
+
+.subject:last-child {
+  margin-right: 0px;
+}

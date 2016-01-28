@@ -1,6 +1,7 @@
 .footer {
   height: 50px;
   clear: both;
+  border-top: 1px solid #ccc;
 }
 
 .footer ul {
