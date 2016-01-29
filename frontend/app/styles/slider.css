@@ -1,8 +1,7 @@
 .slider-container {
-  padding-top: 150px;
-  padding-bottom: 150px;
-  background: #222222;
-  border-bottom: 1px solid #666666;
+  margin-top: 10px;
+/*  padding-top: 150px;
+  padding-bottom: 150px;*/
 }
 
 .bx-wrapper {

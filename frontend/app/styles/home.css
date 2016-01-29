@@ -3,7 +3,7 @@
   padding-bottom: 50px;
 }
 
-.library .title {
+.fancy-title {
   color: #525252;
   text-align: center;
   margin-bottom: 30px;
@@ -12,12 +12,12 @@
   overflow: hidden;
 }
 
-.library .title span {
+.fancy-title span {
   position: relative;
 }
 
-.library .title span:before,
-.library .title span:after {
+.fancy-title span:before,
+.fancy-title span:after {
   content: "";
   border-top: 1px solid #ccc;
   width: 600px;
@@ -27,12 +27,12 @@
   position: absolute;
 }
 
-.library .title span:before {
+.fancy-title span:before {
   right: 100%;
   margin-right: 20px;
 }
 
-.library .title span:after {
+.fancy-title span:after {
   left: 100%;
   margin-left: 20px;
 }
@@ -90,4 +90,64 @@
 
 .subject:last-child {
   margin-right: 0px;
+}
+
+.new-releast {
+  overflow: hidden;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.tip {
+  width: 32%;
+  float: left;
+  height: 175px;
+  max-with: 300px;
+  background: #000;
+  position: relative;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-left: 0.666665%;
+  margin-right: 0.666665%;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.tip-name, .tip-duration {
+  color: #ccc;
+  font-size: 1em;
+  z-index: 999;
+  transition: color 0.3s;
+}
+
+.tip-name {
+  top: 5px;
+  left: 5px;
+  position: absolute;
+}
+
+.tip-duration {
+  left: 5px;
+  bottom: 5px;
+  position: absolute;
+}
+
+.tip-thumbnail {
+  opacity: 0.25;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  transition: opacity 0.3s;
+}
+
+.tip:hover .tip-thumbnail {
+  opacity: 0.15;
+}
+
+.tip:hover .tip-name,
+.tip:hover .tip-duration {
+  color: #fff;
 }
