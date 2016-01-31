@@ -1,7 +1,6 @@
 .header {
   height: 50px;
-  background: #222222;
-  border-bottom: 1px solid #666666;
+  border-bottom: 1px solid #ccc;
 }
 
 .header .logo {
@@ -23,8 +22,7 @@
 }
 
 .header .menu > li a {
-  /*color: #525252;*/
-  color: #fff;
+  color: #525252;
   font-size: 1em;
   display: block;
   padding: 0 10px;

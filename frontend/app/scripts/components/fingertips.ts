@@ -2,6 +2,7 @@ import {Component, View, HostListener} from 'angular2/core';
 import {RouteConfig, RouterOutlet, RouterLink, Location} from 'angular2/router';
 
 import {HomeComponent} from './home';
+import {Config} from '../services/config';
 
 @Component({
   selector: 'fingertips',
@@ -11,7 +12,7 @@ import {HomeComponent} from './home';
   directives: [RouterOutlet, RouterLink]
 })
 @RouteConfig([
-  { path: '/', name: 'Home', component: HomeComponent }
+  { path: Config.url.home, name: 'Home', component: HomeComponent }
 ])
 export class Fingertips {
   activedItem: string;
