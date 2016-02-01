@@ -3,6 +3,8 @@ module Api
     class BaseController < ::ActionController::Base
       include ApplicationHelper
 
+      rescue_from ActiveRecord::RecordNotFound, with: :resource_not_found
+
       protected
 
       def authenticate
@@ -15,6 +17,10 @@ module Api
         if user_logged_in?
           render json: {message: 'You have already logged in.'}, status: 301
         end
+      end
+
+      def resource_not_found
+        render json: {message: 'Resource not found.'}, status: 404
       end
     end
   end

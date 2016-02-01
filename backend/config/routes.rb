@@ -5,6 +5,8 @@ Rails.application.routes.draw do
         post '/login' => 'session#create'
         get '/logout' => 'session#destroy'
         post '/register' => 'user#create'
+
+        resources :tip, only: :show
       end
     end
   end
