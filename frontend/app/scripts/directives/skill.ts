@@ -10,7 +10,8 @@ enum Direction { FORWORD, BACKWORD }
   selector: 'skill'
 })
 @View({
-  templateUrl: 'views/template/skill.html'
+  template: require('../../views/template/skill.html'),
+  styles: [require('../../styles/directives/skill.css')]
 })
 export class SkillDirective implements OnInit, OnDestroy, AfterViewInit {
   code: string;

@@ -1,4 +1,4 @@
-import {Component, View, HostListener} from 'angular2/core';
+import {Component, View, HostListener, ViewEncapsulation} from 'angular2/core';
 import {RouteConfig, RouterOutlet, RouterLink, Location} from 'angular2/router';
 
 import {HomeComponent} from './home';
@@ -8,9 +8,14 @@ import {Config} from '../services/config';
   selector: 'fingertips',
 })
 @View({
-  templateUrl: 'views/main.html',
-  styleUrls: ['styles/main.css', 'styles/footer.css', 'styles/header.css'],
-  directives: [RouterOutlet, RouterLink]
+  template: require('../../views/main.html'),
+  styles: [
+    require('../../styles/main.css'),
+    require('../../styles/footer.css'),
+    require('../../styles/header.css')
+  ],
+  directives: [RouterOutlet, RouterLink],
+  encapsulation: ViewEncapsulation.None
 })
 @RouteConfig([
   { path: Config.url.home, name: 'Home', component: HomeComponent }

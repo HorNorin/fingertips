@@ -3,16 +3,11 @@ import {Component, View, OnInit, AfterViewInit} from 'angular2/core';
 import {SkillDirective} from '../directives/skill';
 
 @Component({
-  selector: 'home',
-  directives: [SkillDirective],
-  styles: [require('../../styles/home.css')],
-  // styleUrls: ['styles/home.css'],
-  // templateUrl: 'views/home.html'
-  template: require('../../views/home.html')
+  selector: 'home'
 })
-// @View({
-//   directives: [SkillDirective],
-//   styleUrls: ['styles/home.css'],
-//   templateUrl: 'views/home.html'
-// })
+@View({
+  directives: [SkillDirective],
+  template: require('../../views/home.html'),
+  styles: [require('../../styles/components/home.css')]
+})
 export class HomeComponent { }

@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/solarized-light.min.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
-    <link rel="stylesheet" href="styles/app.min.css">
     {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
     <script src="{%= o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>
     {% } %}

@@ -1,0 +1,50 @@
+.fancy-title {
+  margin-bottom: 30px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.fancy-title span {
+  position: relative;
+}
+
+.fancy-title span:before,
+.fancy-title span:after {
+  top: 50%;
+  content: "";
+  height: 1px;
+  width: 1000px;
+  position: absolute;
+  border-top: 1px solid #ccc;
+}
+
+.fancy-title span:before {
+  right: 100%;
+  margin-right: 40px;
+}
+
+.fancy-title span:after {
+  left: 100%;
+  margin-left: 40px;
+}
+
+.site-info, .about-author {
+  margin-bottom: 100px;
+}
+
+.site-info p, .about-author p {
+  padding: 10px 20px;
+}
+
+.site-info h1,
+.about-author h1 {
+  color: #e74430;
+}
+
+.site-info h1 {
+  text-align: left;
+}
+
+.about-author h1 {
+  text-align: right;
+}
