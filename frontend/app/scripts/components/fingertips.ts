@@ -8,7 +8,8 @@ import {Config} from '../services/config';
   selector: 'fingertips',
 })
 @View({
-  templateUrl: 'public/views/main.html',
+  templateUrl: 'views/main.html',
+  styleUrls: ['styles/main.css', 'styles/footer.css', 'styles/header.css'],
   directives: [RouterOutlet, RouterLink]
 })
 @RouteConfig([

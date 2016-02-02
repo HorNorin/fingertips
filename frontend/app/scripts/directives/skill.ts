@@ -3,13 +3,14 @@ import {Component, View} from 'angular2/core';
 import {OnInit, AfterViewInit, OnDestroy} from 'angular2/core';
 
 declare var hljs: any;
+declare var $: any;
 enum Direction { FORWORD, BACKWORD }
 
 @Component({
   selector: 'skill'
 })
 @View({
-  templateUrl: 'public/views/template/skill.html'
+  templateUrl: 'views/template/skill.html'
 })
 export class SkillDirective implements OnInit, OnDestroy, AfterViewInit {
   code: string;
