@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         post '/register' => 'user#create'
 
         resources :tip, only: :show
+        resources :search, only: :index
       end
     end
   end
