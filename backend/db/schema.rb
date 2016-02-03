@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160202170036) do
     t.string   "title"
     t.text     "description"
     t.string   "thumbnail"
+    t.integer  "skill_id"
     t.integer  "duration",    default: 0
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
