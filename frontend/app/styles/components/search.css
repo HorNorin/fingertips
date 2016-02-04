@@ -1,0 +1,28 @@
+.search {
+  overflow: hidden;
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+.paginate {
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.paginate ul {
+  float: right;
+}
+
+.paginate li {
+  display: inline-block;
+}
+
+.paginate li a {
+  padding: 5px 10px;
+  display: block;
+}
+
+.paginate li.active a {
+  cursor: default;
+  color: #e74430;
+}

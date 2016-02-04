@@ -2,6 +2,7 @@ import {Component, View, HostListener, ViewEncapsulation} from 'angular2/core';
 import {RouteConfig, RouterOutlet, RouterLink, Location} from 'angular2/router';
 
 import {HomeComponent} from './home';
+import {SearchComponent} from './search';
 import {Config} from '../services/config';
 
 @Component({
@@ -18,7 +19,8 @@ import {Config} from '../services/config';
   encapsulation: ViewEncapsulation.None
 })
 @RouteConfig([
-  { path: Config.url.home, name: 'Home', component: HomeComponent }
+  { path: Config.url.home, name: 'Home', component: HomeComponent },
+  { path: Config.url.search, name: 'Browse', component: SearchComponent },
 ])
 export class Fingertips {
   activedItem: string;

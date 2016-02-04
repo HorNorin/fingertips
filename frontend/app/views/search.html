@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="search">
+    <tips [value]="tips"></tips>
+  </div>
+  <div class="paginate">
+    <ul>
+      <li *ngFor="#page of paginate" [class.active]="isCurrentPage(page.index)">
+        <a [routerLink]="getLink(page)">{{ page.text }}</a>
+      </li>
+    </ul>
+  </div>
+</div>

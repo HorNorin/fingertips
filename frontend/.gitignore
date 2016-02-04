@@ -2,3 +2,4 @@ node_modules/
 .tmp/
 .tscache/
 public/
+npm-debug.log

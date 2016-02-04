@@ -2,7 +2,7 @@
   <div class="container">
     <a href="#" class="logo"><img src="images/logo.png" alt="fingertips logo" title="Fingertips"></a>
     <ul class="menu">
-      <li [class.active]="isActivedItem('browse')" (click)="setActivedItem('browse')"><a href="#">Browse</a></li>
+      <li [class.active]="isActivedItem('browse')" (click)="setActivedItem('browse')"><a [routerLink]="['Browse']">Browse</a></li>
       <li [class.active]="isActivedItem('signin')" (click)="setActivedItem('signin')"><a href="#">Sign In</a></li>
       <li [class.active]="isActivedItem('signup')" (click)="setActivedItem('signup')"><a href="#">Sign Up</a></li>
       <li [class.active]="dropDownOpenned" (click)="toggleDropDown($event)">

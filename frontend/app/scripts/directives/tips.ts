@@ -9,6 +9,7 @@ import {TipDirective} from './tip';
     </div>
   `,
   directives: [TipDirective]
+  // styles: [require('../../styles/directives/tips.css')]
 })
 export class TipsDirective {
   @Input() value: any[];

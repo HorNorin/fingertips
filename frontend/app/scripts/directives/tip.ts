@@ -3,13 +3,15 @@ import {Component, Input, AfterContentInit} from 'angular2/core';
 @Component({
   selector: 'tip',
   template: `
-    <span class="tip-name">{{ name }}</span>
+    <span class="tip-name">{{ title }}</span>
     <span class="tip-duration">{{ duration }}</span>
     <img class="tip-thumbnail" [attr.src]="thumbnail">
-  `
+    <a href="#" class="tip-play">&#8227;</a>
+  `,
+  styles: [require('../../styles/directives/tips.css')]
 })
 export class TipDirective implements AfterContentInit {
-  name: string;
+  title: string;
   duration: string;
   thumbnail: string;
 
@@ -33,8 +35,8 @@ export class TipDirective implements AfterContentInit {
       this.duration = `${this._format(minutes, 2)}:${this._format(seconds, 2)}`;
     }
 
-    // Format name string
-    this.name = this._shrinkName(this.value.name, 50);
+    // Format title string
+    this.title = this._shrinkName(this.value.title, 50);
   }
 
   private _format(num: number, length: number) {
