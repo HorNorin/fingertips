@@ -27,7 +27,7 @@ a, a:hover, a:active, a:visited {
 }
 
 .main {
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
 }
 
 .container {
@@ -112,4 +112,21 @@ a, a:hover, a:active, a:visited {
 
 .tip:hover .tip-play {
   opacity: 1;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+* html .clearfix {
+  zoom: 1;
+}
+
+*:first-child+html .clearfix {
+  zoom: 1;
 }

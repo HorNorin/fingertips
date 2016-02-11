@@ -11,6 +11,7 @@ export var Config = {
     fadeInterval: 5000
   },
   api: {
-    searchUrl: `${_host}/${_apiVersion}/search.json`
+    searchUrl: `${_host}/${_apiVersion}/search.json`,
+    searchSuggestion: `${_host}/${_apiVersion}/search_suggestion`
   }
 };

@@ -1,11 +1,47 @@
 <div class="container">
-  <div class="search">
-    <tips [value]="tips"></tips>
+  <div class="search-header clearfix">
+    <ul class="breadcrumb">
+      <li *ngFor="#item of breadcrumbs" [class.active]="item.active">
+        <a [href]="item.url" *ngIf="!item.active">{{ item.label }}</a>
+        <span *ngIf="item.active">{{ item.label }}</span>
+      </li>
+    </ul>
+    <div class="search-box">
+      <form class="form" (keyup)="setSelectedSuggestion($event)">
+        <div class="form-group">
+          <input [ngModel]="q" type="text" placeholder="Search keyword..." (ngModelChange)="doSearchSuggestion($event)">
+        </div>
+        <div class="form-group not-visible">
+          <button (click)="doSearch($event)"></button>
+        </div>
+      </form>
+      <ul *ngIf="suggestions && suggestions.length > 0" class="search-suggestion">
+        <li *ngFor="#suggestion of suggestions"
+          (click)="doSearch($event, suggestion.text)"
+          [class.active]="suggestion.active"
+          class="search-suggestion-item">{{ suggestion.text }}</li>
+      </ul>
+    </div>
   </div>
-  <div class="paginate">
+  <div class="search-menu">
+    <div class="search-sort">
+      <span class="search-sort-label">Order</span>
+      <select class="search-sort-menu" [ngModel]="sortType" (ngModelChange)="doSort($event)">
+        <option [value]="SortType.Title">Title</option>
+        <option [value]="SortType.Date">Date</option>
+        <option [value]="SortType.Duration">Duration</option>
+      </select>
+    </div>
+    <div class="search-count">{{ tips?.length * currentPage }}/{{ totalCount }} {{ totalCount > 1 ? 'items' : 'item'}}</div>
+  </div>
+  <div class="search clearfix">
+    <tips [value]="tips" *ngIf="tips && tips.length > 0"></tips>
+    <div *ngIf="!tips || tips.length <= 0" class="search-not-found">Nothing matched your search keyword.</div>
+  </div>
+  <div class="paginate" *ngIf="paginate && paginate.length > 1">
     <ul>
       <li *ngFor="#page of paginate" [class.active]="isCurrentPage(page.index)">
-        <a [routerLink]="getLink(page)">{{ page.text }}</a>
+        <a (click)="goto(page)">{{ page.text }}</a>
       </li>
     </ul>
   </div>

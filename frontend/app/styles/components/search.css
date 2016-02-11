@@ -1,7 +1,120 @@
-.search {
+.search-header {
+  padding: 10px;
+}
+
+.breadcrumb {
+  float: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.breadcrumb a {
+  color: #e74430;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb > li {
+  font-size: 0.9em;
+  display: inline-block;
+}
+
+.breadcrumb > li+li:before {
+  color: #ccc;
+  padding: 0 5px;
+  font-size: 0.9em;
+  content: "/\00a0";
+}
+
+.breadcrumb > li.active {
+  color: #777;
+}
+
+.search-box {
+  float: right;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+.form {
   overflow: hidden;
-  padding-top: 50px;
+  border: 1px solid #ccc;
+}
+
+.form-group {
+  float: left;
+}
+
+.form-group.not-visible {
+  display: none;
+}
+
+.form input {
+  border: none;
+  padding: 2px 5px;
+  font-size: 0.9em;
+}
+
+.search-suggestion {
+  top: 25px;
+  z-index: 999;
+  position: absolute;
+  border: 1px solid #ccc;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.search-suggestion li {
+  padding: 2px 5px;
+  cursor: pointer;
+}
+
+.search-suggestion-item.active,
+.search-suggestion li:hover {
+  color: #fff;
+  background: #e74430 !important;
+}
+
+.search-menu {
+  overflow: hidden;
+  padding: 5px 10px;
+}
+
+.search-sort {
+  float: left;
+}
+
+.search-sort-label,
+.search-sort-menu {
+  float: left;
+}
+
+.search-sort-label {
+  margin-right: 5px;
+  margin-top: 2px;
+}
+
+.search-sort,
+.search-count {
+  font-size: 0.9em;
+}
+
+.search-count {
+  float: right;
+  color: #777 !important;
+}
+
+.search {
   padding-bottom: 10px;
+}
+
+.search-not-found {
+  font-size: 1em;
+  text-align: center;
 }
 
 .paginate {
@@ -18,8 +131,9 @@
 }
 
 .paginate li a {
-  padding: 5px 10px;
+  padding: 5px;
   display: block;
+  cursor: pointer;
 }
 
 .paginate li.active a {
