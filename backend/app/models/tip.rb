@@ -1,4 +1,7 @@
 class Tip < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   self.per_page = 12
 
   belongs_to :skill

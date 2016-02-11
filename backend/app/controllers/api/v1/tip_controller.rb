@@ -5,7 +5,14 @@ module Api
 
       def show
         respond_to do |format|
-          format.json { render json: Tip.find(params[:id]) }
+          format.json do
+            tip = Tip.friendly.find(params[:id])
+            if params[:callback].present?
+              render json: tip, callback: params[:callback]
+            else
+              render json: tip
+            end
+          end
         end
       end
     end
