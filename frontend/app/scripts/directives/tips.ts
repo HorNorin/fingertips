@@ -1,3 +1,4 @@
+import {RouterLink} from 'angular2/router';
 import {Component, Input, AfterContentInit} from 'angular2/core';
 
 /*
@@ -12,11 +13,13 @@ import {Component, Input, AfterContentInit} from 'angular2/core';
     <span class="tip-name">{{ title }}</span>
     <span class="tip-duration">{{ duration }}</span>
     <img class="tip-thumbnail" [attr.src]="thumbnail">
-    <a href="#" class="tip-play">&#8227;</a>
-  `
+    <a [routerLink]="['Tip', {id: slug}]" class="tip-play">&#8227;</a>
+  `,
+  directives: [RouterLink]
 })
 class TipDirective implements AfterContentInit {
   title: string;
+  slug: string;
   duration: string;
   thumbnail: string;
 
@@ -25,6 +28,7 @@ class TipDirective implements AfterContentInit {
   ngAfterContentInit() {
     // Thumbnail string
     this.thumbnail = this.value.thumbnail;
+    this.slug = this.value.slug;
 
     // Format duration string
     var duration = this.value.duration;
@@ -68,10 +72,10 @@ class TipDirective implements AfterContentInit {
   selector: 'tips',
   template: `
     <div class="tip" *ngFor="#tip of value">
-      <a href="#"><tip [value]="tip"></tip></a>
+      <a [routerLink]="['Tip', {id: tip.slug}]"><tip [value]="tip"></tip></a>
     </div>
   `,
-  directives: [TipDirective]
+  directives: [TipDirective, RouterLink]
 })
 export class TipsDirective {
   @Input() value: any[];

@@ -130,3 +130,20 @@ a, a:hover, a:active, a:visited {
 *:first-child+html .clearfix {
   zoom: 1;
 }
+
+.video-js {
+  color: #FF8A73;
+}
+
+.video-js .vjs-volume-level,
+.video-js .vjs-play-progress,
+.video-js .vjs-slider-bar {
+  background: #FF8A73;
+}
+
+.video-js .vjs-big-play-button {
+  width: 3em;
+  height: 2em;
+  line-height: 2em;
+  border-color: #FF8A73;
+}

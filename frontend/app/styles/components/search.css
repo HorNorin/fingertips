@@ -1,11 +1,16 @@
-.search-header {
-  padding: 10px;
+.search-head {
+  background: #1d1f21;
+  padding: 30px 0;
 }
 
 .breadcrumb {
   float: left;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.search-header {
+  padding: 0 10px;
 }
 
 .breadcrumb a {
@@ -29,7 +34,7 @@
 }
 
 .breadcrumb > li.active {
-  color: #777;
+  color: #aaa;
 }
 
 .search-box {
@@ -81,7 +86,8 @@
 
 .search-menu {
   overflow: hidden;
-  padding: 5px 10px;
+  margin-top: 15px;
+  padding: 0 10px;
 }
 
 .search-sort {
@@ -96,6 +102,7 @@
 .search-sort-label {
   margin-right: 5px;
   margin-top: 2px;
+  color: #eee;
 }
 
 .search-sort,
@@ -105,7 +112,7 @@
 
 .search-count {
   float: right;
-  color: #777 !important;
+  color: #eee;
 }
 
 .search {

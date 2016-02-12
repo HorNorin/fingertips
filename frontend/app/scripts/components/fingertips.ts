@@ -1,8 +1,9 @@
 import {Component, View, HostListener, ViewEncapsulation} from 'angular2/core';
-import {RouteConfig, RouterOutlet, RouterLink, Location} from 'angular2/router';
+import {RouteConfig, RouterOutlet, RouterLink, Location, Router} from 'angular2/router';
 
 import {HomeComponent} from './home';
 import {SearchComponent} from './search';
+import {TipComponent} from './tip';
 import {Config} from '../services/config';
 
 @Component({
@@ -21,14 +22,18 @@ import {Config} from '../services/config';
 @RouteConfig([
   { path: Config.url.home, name: 'Home', component: HomeComponent },
   { path: Config.url.search, name: 'Browse', component: SearchComponent },
+  { path: Config.url.tip, name: 'Tip', component: TipComponent }
 ])
 export class Fingertips {
   activedItem: string;
   dropDownOpenned: boolean;
 
-  constructor(location: Location) {
+  constructor(router: Router, location: Location) {
     this.dropDownOpenned = false;
     this.activedItem = location.path();
+    router.subscribe((next) => {
+      this.activedItem = next;
+    });
   }
 
   isActivedItem(item: string) {

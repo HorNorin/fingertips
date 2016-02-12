@@ -19,4 +19,12 @@ export class TipService {
     searchParams.append('callback', 'JSONP_CALLBACK');
     return this._http.request(url, { search: searchParams });
   }
+
+  find(id): any {
+    var url = `${Config.api.tipUrl}/${id}.json`;
+    var searchParams = new URLSearchParams();
+
+    searchParams.append('callback', 'JSONP_CALLBACK');
+    return this._http.request(url, { search: searchParams });
+  }
 }
