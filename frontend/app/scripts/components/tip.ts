@@ -28,29 +28,15 @@ export class TipComponent implements OnInit, OnDestroy {
       this.tip.created_at = new Date(this.tip.created_at);
 
       // TODO: Remove this dummy data when API is ready
-      // this.tip.video_source = 'youtube';
-      // this.tip.video_url = 'https://www.youtube.com/embed/gDUp5YfXCSE?list=PLyLyqT77DD8DWwnfN3zbwPObxEx0H1Hsk';
-
-      this.tip.video_source = 'as3';
-      this.tip.video_url = 'http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4';
       this.tip.video_poster = 'http://taagme.com/wp-content/uploads/2015/06/video-poster.jpg';
 
-      if (this.tip.video_source == 'youtube') {
-        this._setupVideoPlayer({
-          techOrder: ['youtube'],
-          sources: [{
-            type: 'video/youtube',
-            src: this.tip.video_url
-          }]
-        });
-      } else {
-        this._setupVideoPlayer({poster: this.tip.video_poster});
-        this.types = [
-          'video/mp4',
-          'video/webm',
-          'video/ogg',
-        ];
-      }
+      this._setupVideoPlayer({
+        poster: this.tip.video_poster,
+        sources:[{
+          type: 'video/mp4',
+          src: this.tip.video_url
+        }]
+      });
 
       $(window).resize(() => {
         var height;
