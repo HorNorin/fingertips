@@ -27,11 +27,8 @@ export class TipComponent implements OnInit, OnDestroy {
       this.tip = res.json();
       this.tip.created_at = new Date(this.tip.created_at);
 
-      // TODO: Remove this dummy data when API is ready
-      this.tip.video_poster = 'http://taagme.com/wp-content/uploads/2015/06/video-poster.jpg';
-
       this._setupVideoPlayer({
-        poster: this.tip.video_poster,
+        poster: this.tip.poster_url,
         sources:[{
           type: 'video/mp4',
           src: this.tip.video_url
