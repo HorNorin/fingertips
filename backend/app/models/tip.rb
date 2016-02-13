@@ -3,6 +3,7 @@ class Tip < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   mount_uploader :video, VideoUploader
+  mount_uploader :poster, PosterUploader
 
   self.per_page = 12
 
@@ -10,6 +11,7 @@ class Tip < ActiveRecord::Base
 
   delegate :name, to: :skill, prefix: true
   delegate :url, to: :video, prefix: true
+  delegate :url, to: :poster, prefix: true
 
   scope :search, ->(params) do
     begin
