@@ -2,11 +2,14 @@ class Tip < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  mount_uploader :video, VideoUploader
+
   self.per_page = 12
 
   belongs_to :skill
 
   delegate :name, to: :skill, prefix: true
+  delegate :url, to: :video, prefix: true
 
   scope :search, ->(params) do
     begin
