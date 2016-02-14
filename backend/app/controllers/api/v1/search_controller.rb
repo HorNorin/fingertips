@@ -4,9 +4,13 @@ module Api
       def index
         respond_to do |format|
           format.json do
-            tips = Tip.search(params)
+            tips = Tip.includes(:skill).search(params)
+            json = tips.map do |tip|
+              tip.as_json(except: [:video, :poster])
+                .merge({'poster_url' => tip.poster.small.url})
+            end
             render json: {
-              tips: tips,
+              tips: json,
               per_page: tips.per_page,
               total_pages: tips.total_pages,
               current_page: tips.current_page,

@@ -12,7 +12,7 @@ import {Component, Input, AfterContentInit} from 'angular2/core';
   template: `
     <span class="tip-name">{{ title }}</span>
     <span class="tip-duration">{{ duration }}</span>
-    <img class="tip-thumbnail" [attr.src]="thumbnail">
+    <img class="tip-thumbnail" [attr.src]="posterUrl">
     <a [routerLink]="['Tip', {id: slug}]" class="tip-play">&#8227;</a>
   `,
   directives: [RouterLink]
@@ -21,13 +21,13 @@ class TipDirective implements AfterContentInit {
   title: string;
   slug: string;
   duration: string;
-  thumbnail: string;
+  posterUrl: string;
 
   @Input() value: any;
 
   ngAfterContentInit() {
     // Thumbnail string
-    this.thumbnail = this.value.thumbnail;
+    this.posterUrl = this.value.poster_url;
     this.slug = this.value.slug;
 
     // Format duration string
