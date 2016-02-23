@@ -4,10 +4,15 @@ import {RouteConfig, RouterOutlet, RouterLink, Location, Router} from 'angular2/
 import {HomeComponent} from './home';
 import {SearchComponent} from './search';
 import {TipComponent} from './tip';
+import {LoginComponent} from './login';
+import {LogoutComponent} from './logout';
 import {Config} from '../services/config';
+import {AuthService} from '../services/auth';
+import {Flash} from '../services/flash';
 
 @Component({
   selector: 'fingertips',
+  providers: [AuthService]
 })
 @View({
   template: require('../../views/main.html'),
@@ -22,17 +27,23 @@ import {Config} from '../services/config';
 @RouteConfig([
   { path: Config.url.home, name: 'Home', component: HomeComponent },
   { path: Config.url.search, name: 'Browse', component: SearchComponent },
-  { path: Config.url.tip, name: 'Tip', component: TipComponent }
+  { path: Config.url.tip, name: 'Tip', component: TipComponent },
+  { path: Config.url.login, name: 'Login', component: LoginComponent },
+  { path: Config.url.logout, name: 'Logout', component: LogoutComponent }
 ])
 export class Fingertips {
   activedItem: string;
+  isLoggedIn: boolean;
   dropDownOpenned: boolean;
+  flashMessage: any;
 
-  constructor(router: Router, location: Location) {
+  constructor(router: Router, location: Location, auth: AuthService, flash: Flash) {
     this.dropDownOpenned = false;
     this.activedItem = location.path();
     router.subscribe((next) => {
       this.activedItem = next;
+      this.flashMessage = flash.get();
+      this.isLoggedIn = auth.authenticate() ? true : false;
     });
   }
 

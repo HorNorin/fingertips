@@ -38,8 +38,10 @@ end
   }
 
   ngAfterViewInit() {
-    hljs.configure({ tabReplace: '  ' });
-    hljs.initHighlighting();
+    $('pre code').each((i, block) => {
+      hljs.configure({ tabReplace: '  ' });
+      hljs.highlightBlock(block);
+    });
   }
 
   ngOnDestroy() {

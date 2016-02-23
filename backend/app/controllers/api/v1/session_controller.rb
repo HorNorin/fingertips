@@ -8,7 +8,7 @@ module Api
           format.json do
             if user = ::User.authenticate(params[:email], params[:password])
               user.update_attributes(token_expired_at: 1.day.from_now)
-              render json: {message: 'Successfully login.', data: user.to_json}
+              render json: {message: 'Successfully login.', data: user}
             else
               render json: {message: 'Invalid email or password.'}, status: 401
             end

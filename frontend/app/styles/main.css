@@ -147,3 +147,20 @@ a, a:hover, a:active, a:visited {
   line-height: 2em;
   border-color: #FF8A73;
 }
+
+.error {
+  color: #e74430;
+  background: #f2dede;
+  border-color: #ebccd1;
+}
+
+.success {
+  color: #3c763d;
+  background: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.error, .success {
+  padding: 15px;
+  border-radius: 4px;
+}

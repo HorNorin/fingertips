@@ -5,6 +5,8 @@ export var Config = {
   url: {
     home: '/',
     tip: '/:id',
+    login: '/login',
+    logout: '/logout',
     search: '/browse',
     otherwise: '/*path'
   },
@@ -13,6 +15,8 @@ export var Config = {
     fadeInterval: 5000
   },
   api: {
+    login: `${_host}/${_apiVersion}/login.json`,
+    logout: `${_host}/${_apiVersion}/logout.json`,
     tipUrl: `${_host}/${_apiVersion}/tip`,
     searchUrl: `${_host}/${_apiVersion}/search.json`,
     searchSuggestion: `${_host}/${_apiVersion}/search_suggestion`
