@@ -1,12 +1,12 @@
 import {Config} from './config';
 import {Injectable} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
-import {Jsonp, Headers} from 'angular2/http';
+import {Http, Headers} from 'angular2/http';
 import {RequestOptionsArgs, URLSearchParams} from 'angular2/http';
 
 @Injectable()
 export class TipService {
-  constructor(private _http: Jsonp) { }
+  constructor(private _http: Http) { }
 
   get(params: RouteParams): any {
     var url = Config.api.searchUrl;
@@ -16,7 +16,6 @@ export class TipService {
       searchParams.append(p, params.get(p));
     }
 
-    searchParams.append('callback', 'JSONP_CALLBACK');
     return this._http.request(url, { search: searchParams });
   }
 
@@ -24,7 +23,6 @@ export class TipService {
     var url = `${Config.api.tipUrl}/${id}.json`;
     var searchParams = new URLSearchParams();
 
-    searchParams.append('callback', 'JSONP_CALLBACK');
     return this._http.request(url, { search: searchParams });
   }
 }

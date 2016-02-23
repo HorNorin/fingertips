@@ -9,13 +9,14 @@ module Api
               tip.as_json(except: [:video, :poster])
                 .merge({'poster_url' => tip.poster.small.url})
             end
+
             render json: {
               tips: json,
               per_page: tips.per_page,
               total_pages: tips.total_pages,
               current_page: tips.current_page,
               total_count: tips.count
-            }, callback: params[:callback]
+            }
           end
         end
       end

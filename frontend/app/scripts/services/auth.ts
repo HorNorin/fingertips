@@ -1,11 +1,11 @@
 import {Injectable} from 'angular2/core';
-import {Http, Jsonp, Headers} from 'angular2/http';
+import {Http, Headers} from 'angular2/http';
 import {Config} from './config';
 import {Cookie} from 'ng2-cookies/ng2-cookies';
 
 @Injectable()
 export class AuthService {
-  constructor(private _http: Http, private _jsonp: Jsonp) { }
+  constructor(private _http: Http, private _jsonp: Http) { }
 
   authenticate() {
     return Cookie.getCookie('auth-token');

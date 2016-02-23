@@ -20,11 +20,7 @@ module Api
       end
 
       def resource_not_found
-        if params[:callback].present?
-          render json: {message: 'Resource not found.'}, status: 404, callback: params[:callback]
-        else
-          render json: {message: 'Resource not found.'}, status: 404
-        end
+        render json: {message: 'Resource not found.'}, status: 404
       end
     end
   end

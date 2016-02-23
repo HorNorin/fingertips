@@ -1,2 +1,6 @@
+api:
+  origins: http://localhost:3000
+  resource: '*'
 carrierwave:
   storage: 'file'
+asset_host: 'http://localhost:3001'

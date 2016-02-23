@@ -34,12 +34,14 @@ module Fingertips
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    config.action_controller.asset_host = FingertipsConfig.asset_host
+
     config.middleware.insert_before 0, 'Api::V1::SearchSuggestions'
 
-    config.middleware.insert_before 1, 'Rack::Cors' do
+    config.middleware.insert_before 0, 'Rack::Cors' do
       allow do
-        origins '*'
-        resource '*', headers: :any, methods: [:get, :post, :options]
+        origins FingertipsConfig.api.origins
+        resource FingertipsConfig.api.resource, headers: :any, methods: [:get, :post, :options]
       end
     end
   end
