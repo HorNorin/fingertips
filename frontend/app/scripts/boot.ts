@@ -1,6 +1,6 @@
 import {bootstrap} from 'angular2/platform/browser';
 import {Fingertips} from './components/fingertips';
-import {Flash} from './services/flash';
+import {Flash} from './services';
 import {ROUTER_PROVIDERS} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
 

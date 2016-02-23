@@ -1,4 +1,4 @@
-import {TipService} from '../services/tip';
+import {TipService} from '../services';
 import {RouteParams} from 'angular2/router';
 import {Component, View, OnInit, OnDestroy} from 'angular2/core';
 

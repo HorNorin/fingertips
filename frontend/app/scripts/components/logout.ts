@@ -1,8 +1,6 @@
 import {Component} from 'angular2/core';
-import {Config} from '../services/config';
-import {AuthService} from '../services/auth';
+import {AuthService, Config, Flash} from '../services';
 import {Cookie} from 'ng2-cookies/ng2-cookies';
-import {Flash} from '../services/flash';
 import {Router, OnActivate, ComponentInstruction} from 'angular2/router';
 
 @Component({

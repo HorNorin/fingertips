@@ -1,9 +1,7 @@
 import {Component, View} from 'angular2/core';
-import {AuthService} from '../services/auth';
 import {Router, ComponentInstruction} from 'angular2/router';
 import {OnActivate, CanActivate} from 'angular2/router';
-import {Config} from '../services/config';
-import {Flash} from '../services/flash';
+import {AuthService, Config, Flash} from '../services';
 
 @Component({
   selector: 'login'

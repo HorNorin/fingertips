@@ -1,4 +1,4 @@
-import {Config} from '../services/config';
+import {Config} from '../services';
 import {Component, View} from 'angular2/core';
 import {OnInit, AfterViewInit, OnDestroy} from 'angular2/core';
 

@@ -1,6 +1,4 @@
-import {TipService} from '../services/tip';
-import {SearchSuggestion} from '../services/searchSuggestion';
-import {Config} from '../services/config';
+import {Config, SearchSuggestion, TipService} from '../services';
 import {TipsDirective} from '../directives/tips';
 import {Component, View, OnInit} from 'angular2/core';
 import {RouteParams, Router, RouterLink} from 'angular2/router';

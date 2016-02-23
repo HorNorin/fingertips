@@ -6,9 +6,7 @@ import {SearchComponent} from './search';
 import {TipComponent} from './tip';
 import {LoginComponent} from './login';
 import {LogoutComponent} from './logout';
-import {Config} from '../services/config';
-import {AuthService} from '../services/auth';
-import {Flash} from '../services/flash';
+import {AuthService, Config, Flash} from '../services';
 
 @Component({
   selector: 'fingertips',
