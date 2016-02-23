@@ -1,23 +1,26 @@
 import {Component, View, HostListener, ViewEncapsulation} from 'angular2/core';
 import {RouteConfig, RouterOutlet, RouterLink, Location, Router} from 'angular2/router';
 
-import {HomeComponent} from './home';
-import {SearchComponent} from './search';
-import {TipComponent} from './tip';
-import {LoginComponent} from './login';
-import {LogoutComponent} from './logout';
-import {AuthService, Config, Flash} from '../services';
+import {AuthService, Config, Flash} from './services';
+
+import {
+  HomeComponent,
+  LoginComponent,
+  LogoutComponent,
+  SearchComponent,
+  TipComponent
+} from './components';
 
 @Component({
   selector: 'fingertips',
   providers: [AuthService]
 })
 @View({
-  template: require('../../views/main.html'),
+  template: require('../views/main.html'),
   styles: [
-    require('../../styles/main.css'),
-    require('../../styles/footer.css'),
-    require('../../styles/header.css')
+    require('../styles/main.css'),
+    require('../styles/footer.css'),
+    require('../styles/header.css')
   ],
   directives: [RouterOutlet, RouterLink],
   encapsulation: ViewEncapsulation.None
