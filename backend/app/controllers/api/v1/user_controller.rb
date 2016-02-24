@@ -1,7 +1,8 @@
 module Api
   module V1
     class UserController < BaseController
-      before_action :none_authenticate
+      before_action :authenticate, only: :show
+      before_action :none_authenticate, only: :create
 
       def create
         respond_to do |format|
@@ -13,6 +14,12 @@ module Api
               render json: @user.errors.full_messages, status: 422
             end
           end
+        end
+      end
+
+      def show
+        respond_to do |format|
+          format.json { render json: current_user }
         end
       end
 

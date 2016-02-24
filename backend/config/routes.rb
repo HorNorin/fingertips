@@ -2,11 +2,12 @@ Rails.application.routes.draw do
   constraints format: :json do
     namespace :api do
       namespace :v1 do
-        post '/login' => 'session#create'
-        get '/logout' => 'session#destroy'
+        get '/user'      => 'user#show'
+        get '/logout'    => 'session#destroy'
+        post '/login'    => 'session#create'
         post '/register' => 'user#create'
 
-        resources :tip, only: :show
+        resources :tip,    only: :show
         resources :search, only: :index
       end
     end
