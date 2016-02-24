@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213132019) do
+ActiveRecord::Schema.define(version: 20160224145534) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "tip_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "replies_count", default: 0
+  end
+
+  create_table "debates", force: :cascade do |t|
+    t.integer "reply_id"
+    t.integer "opinion_id"
+  end
+
+  add_index "debates", ["reply_id", "opinion_id"], name: "index_debates_on_reply_id_and_opinion_id"
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false

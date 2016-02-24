@@ -5,7 +5,7 @@ class Tip < ActiveRecord::Base
   mount_uploader :video, VideoUploader
   mount_uploader :poster, PosterUploader
 
-  self.per_page = 12
+  self.per_page = FingertipsConfig.pagination.tip
 
   belongs_to :skill
 
