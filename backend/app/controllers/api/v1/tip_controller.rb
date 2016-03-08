@@ -1,7 +1,7 @@
 module Api
   module V1
     class TipController < BaseController
-      # before_action :authenticate
+      before_action :authenticate
 
       def show
         respond_to do |format|

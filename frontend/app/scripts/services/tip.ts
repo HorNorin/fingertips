@@ -19,10 +19,15 @@ export class TipService {
     return this._http.request(url, { search: searchParams });
   }
 
-  find(id): any {
+  find(id, success, error): any {
     var url = `${Config.api.tipUrl}/${id}.json`;
     var searchParams = new URLSearchParams();
 
-    return this._http.request(url, { search: searchParams });
+    this._http.get(url, { search: searchParams })
+      .subscribe(res => {
+        success(res.json());
+      }, err => {
+        error(err.json());
+      });
   }
 }

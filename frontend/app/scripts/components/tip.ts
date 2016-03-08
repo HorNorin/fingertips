@@ -1,31 +1,44 @@
-import {TipService} from '../services';
-import {RouteParams} from 'angular2/router';
+import {Config} from '../services';
+
+import {RouteParams, RouterLink} from 'angular2/router';
 import {Component, View, OnInit, OnDestroy} from 'angular2/core';
+import {TipService, CommentService, AuthService} from '../services';
 
 declare var videojs;
 declare var $;
 
 @Component({
   selector: 'tip-component',
-  providers: [TipService]
+  providers: [TipService, CommentService, AuthService]
 })
 @View({
+  directives: [RouterLink],
   template: require('../../views/tip.html'),
   styles: [require('../../styles/components/tip.css')]
 })
 export class TipComponent implements OnInit, OnDestroy {
   public tip: any;
+  public comments: any[];
   public types: string[];
 
   private _player: any;
+  private _referred: string;
 
   constructor(private _tipService: TipService,
+              private _auth: AuthService,
+              private _commentService: CommentService,
               private _params: RouteParams) { }
 
   ngOnInit() {
-    this._tipService.find(this._params.get('id')).subscribe(res => {
-      this.tip = res.json();
+    this._tipService.find(this._params.get('id'), tip => {
+      this.tip = tip;
       this.tip.created_at = new Date(this.tip.created_at);
+
+      this._commentService.get(this.tip.id, data => {
+        this.comments = data;
+      }, error => {
+        this.comments = [];
+      });
 
       this._setupVideoPlayer({
         poster: this.tip.poster_url,
@@ -47,11 +60,15 @@ export class TipComponent implements OnInit, OnDestroy {
           height: `${height}px`
         });
       });
-    }, res => { });
+    }, error => {
+      this.tip = null;
+    });
   }
 
   ngOnDestroy() {
-    this._player.dispose();
+    if (this._player) {
+      this._player.dispose();
+    }
   }
 
   private _setupVideoPlayer(options = null) {

@@ -1,15 +1,80 @@
-<div class="tip-component">
-  <div class="container">
-    <div class="tip-component-head">
-      <h1>{{ tip?.title }}</h1>
-      <span>{{ tip?.created_at | date: 'longDate' }}</span>
+<div *ngIf="tip">
+  <div class="tip-component">
+    <div class="container">
+      <div class="tip-component-head">
+        <h1>{{ tip?.title }}</h1>
+        <span>{{ tip?.created_at | date: 'longDate' }}</span>
+      </div>
+      <video [attr.id]="tip?.slug" class="video-js vjs-default-skin vjs-big-play-centered">
+        <p class="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+      <p>{{ tip?.description }}</p>
     </div>
-    <video [attr.id]="tip?.slug" class="video-js vjs-default-skin vjs-big-play-centered">
-      <p class="vjs-no-js">
-        To view this video please enable JavaScript, and consider upgrading to a web browser that
-        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-      </p>
-    </video>
-    <p>{{ tip?.description }}</p>
   </div>
+
+  <div class="comment-body">
+    <div class="container">
+      <div class="comment">
+        <div class="commenter">
+          <a href="#"><img src="images/default_avatar.png" class="img-circle" /></a>
+        </div>
+        <div class="comment-content">
+          <div class="comment-content-header">
+            <h3><a href="#">Norin</a></h3>
+            <span>10 minutes ago</span>
+          </div>
+          <pre>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur assumenda debitis eaque veniam et cupiditate maiores minima veritatis voluptatibus molestias dolores esse sequi saepe, provident fugit odio, dolorem at itaque.</pre>
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="commenter">
+          <a href="#"><img src="images/default_avatar.png" class="img-circle" /></a>
+        </div>
+        <div class="comment-content">
+          <div class="comment-content-header">
+            <h3><a href="#">Norin</a></h3>
+            <span>10 minutes ago</span>
+          </div>
+          <pre>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur assumenda debitis eaque veniam et cupiditate maiores minima veritatis voluptatibus molestias dolores esse sequi saepe, provident fugit odio, dolorem at itaque.</pre>
+        </div>
+      </div>
+
+      <div class="comment">
+        <div class="commenter">
+          <a href="#"><img src="images/default_avatar.png" class="img-circle" /></a>
+        </div>
+        <div class="comment-content">
+          <div class="comment-content-header">
+            <h3><a href="#">Norin</a></h3>
+            <span>10 minutes ago</span>
+          </div>
+          <pre>    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur assumenda debitis eaque veniam et cupiditate maiores minima veritatis voluptatibus molestias dolores esse sequi saepe, provident fugit odio, dolorem at itaque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci odit, laboriosam placeat, quis, distinctio esse doloremque consequuntur molestias, iure iusto. Aut iure itaque, corporis non repellat, debitis provident culpa.</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="comment-form">
+      <div class="commenter">
+        <a href="#"><img src="images/default_avatar.png" class="img-circle"></a>
+      </div>
+      <form>
+        <div class="input" tabindex="0">
+          <textarea rows="3" placeholder="Press Ctrl+Enter to submit."></textarea>
+        </div>
+        <div class="not-visible">
+          <button></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!tip">
+  <p>You need to <a [routerLink]="['Login']">login</a> in order to access this page.</p>
 </div>
