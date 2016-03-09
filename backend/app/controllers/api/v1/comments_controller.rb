@@ -6,15 +6,39 @@ module Api
       rescue_from NoMethodError, with: :resource_not_found
 
       def index
-        comments = Comment.where(tip_id: params[:tip_id])
+        comments = Comment.includes(:user)
+          .where(tip_id: params[:tip_id])
           .paginate(page: params[:page])
-        render json: comments
+        json = comments.map do |comment |
+          comment.as_json.merge({
+            author_name: comment.author_name,
+            user: comment.user.as_json(except: [
+              :password_digest,
+              :token_expired_at,
+              :access_token,
+              :created_at,
+              :updated_at
+            ])
+          })
+        end
+
+        render json: json
       end
 
       def create
         @comment = Comment.new(comment_params)
         if @comment.save
-          render json: @comment
+          json = @comment.as_json.merge({
+            author_name: @comment.author_name,
+            user: @comment.user.as_json(except: [
+              :password_digest,
+              :token_expired_at,
+              :access_token,
+              :created_at,
+              :updated_at
+            ])
+          })
+          render json: json
         else
           render_validation_errors
         end

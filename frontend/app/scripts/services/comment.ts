@@ -9,8 +9,13 @@ export class CommentService {
   constructor(private _http: Http) { }
 
   get(tipId: number, success, error) {
+    var headers = new Headers();
     var url = `${Config.api.tipUrl}/${tipId}/comments.json`;
-    this._http.get(url).subscribe(res => {
+
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', ` Token token=${Cookie.getCookie('auth-token')}`);
+
+    this._http.get(url, { headers: headers }).subscribe(res => {
       success(res.json());
     }, err => {
       error(err.json());

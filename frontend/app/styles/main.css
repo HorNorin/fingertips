@@ -174,3 +174,11 @@ a, a:hover, a:active, a:visited {
   border-radius: 4px;
   background: #e74430;
 }
+
+.not-visible {
+  display: none;
+}
+
+.center {
+  text-align: center;
+}

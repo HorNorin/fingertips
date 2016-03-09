@@ -30,6 +30,11 @@ class User < ActiveRecord::Base
     super(options)
   end
 
+  def as_json(options = {})
+    options[:except] ||= [:password_digest, :token_expired_at]
+    super(options)
+  end
+
   private
 
   def generate_token
